@@ -34,7 +34,7 @@ task hello (type: Greeting) {
 
 task test {
     exec {
-        executable 'q'
+        executable 'c:/Windows/q/w32/q.exe'
 	args 'src/test/q/testFramework.q'
     }
 }
