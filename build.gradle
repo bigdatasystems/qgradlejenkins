@@ -1,0 +1,40 @@
+
+plugins {
+    id 'base'
+}
+
+description = 'A trivial gradle build'
+version = '1.0'
+
+class Greeting extends DefaultTask {
+    String message
+    String recipient
+
+    @TaskAction
+    void sayGreeting() {
+        println "${message}, ${recipient}!"
+    }
+}
+
+task copy(type: Copy) {
+    from 'src'
+    into 'dest'
+    }
+
+task zip(type: Zip) {
+    from 'src'
+}
+
+task hello (type: Greeting) {
+    group 'Welcome'
+    description 'Produces a greeting'
+    message 'Hello'
+    recipient 'World'
+}
+
+task test {
+    exec {
+        executable 'q'
+	args 'src/test/q/testFramework.q'
+    }
+}
